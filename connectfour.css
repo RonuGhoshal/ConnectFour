@@ -25,7 +25,7 @@ h1 {
   margin: -15px;
   width: 150px;
   display: inline-block;
-  background-color: red;
+  background-color: #cc0099;
 }
 
 .standardcell {
@@ -39,32 +39,15 @@ h1 {
   border: 20px black;
 }
 
-.column1 {
 
+#column1 {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
 
-.column2 {
-
-}
-
-.column3 {
-
-}
-
-.column4 {
-
-}
-
-.column5 {
-
-}
-
-.column6 {
-
-}
-
-.column7 {
-
+#column7 {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 
