@@ -19,9 +19,7 @@ h1 {
   text-shadow: 5px 5px 0 rgba(255,0,0,1) ;
 }
 
-.redpiece {
-  color: red;
-}
+
 
 .standardcolumn {
   list-style-type: none;
@@ -244,10 +242,15 @@ h1 {
 #cell42 {
 }
 
+.nopiece {
+  color: #F38630 ;
+}
 
-
-
+.redpiece {
+  color: red;
+}
 
 .blackpiece {
   color: black;
 }
+/*to push*/
