@@ -1,0 +1,253 @@
+body {
+  text-align: center;
+}
+
+h1 {
+  width: 100%;
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 10px;
+  overflow: hidden;
+  border: none;
+  font: normal 70px/1 "VT323", Helvetica, sans-serif;
+  color: rgba(255,255,0,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-shadow: 5px 5px 0 rgba(255,0,0,1) ;
+}
+
+.redpiece {
+  color: red;
+}
+
+.standardcolumn {
+  list-style-type: none;
+  height: 770px;
+  width: 150px;
+  display: inline-block;
+  background-color: red;
+}
+
+.button {
+  height: 770px;
+  width: 150px;
+  display: inline-block;
+  border-color: transparent;
+  background-color: transparent;
+  padding: -20px;
+  margin: 15px;
+  border: none;
+  outline: 0;
+}
+
+.standardcell {
+  height: 100px;
+  width: 100px;
+  margin-top: 24px;
+  margin-left: 5px;
+  display: relative;
+  background-color: #F38630;
+  border-radius: 100px;
+  border: 20px black;
+}
+
+.column1 {
+
+}
+
+.column2 {
+
+}
+
+.column3 {
+
+}
+
+.column4 {
+
+}
+
+.column5 {
+
+}
+
+.column6 {
+
+}
+
+.column7 {
+
+}
+
+
+.row1 {
+
+}
+
+.row2 {
+
+}
+
+.row3 {
+
+}
+
+.row4 {
+
+}
+
+.row5 {
+
+}
+
+.row6 {
+
+}
+
+#cell1 {
+
+}
+
+#cell2 {
+
+}
+
+#cell3 {
+
+}
+
+#cell4 {
+
+}
+
+#cell5 {
+
+}
+
+#cell6 {
+
+}
+
+#cell7 {
+
+}
+
+#cell8 {
+
+}
+
+#cell9 {
+
+}
+
+#cell10 {
+
+}
+
+
+#cell11 {
+}
+
+#cell12 {
+}
+
+#cell13 {
+}
+
+#cell14 {
+}
+
+#cell15 {
+}
+
+#cell16 {
+}
+
+#cell17 {
+}
+
+#cell18 {
+}
+
+#cell19 {
+}
+
+#cell20 {
+}
+
+#cell21 {
+}
+
+#cell22 {
+}
+
+#cell23 {
+}
+
+#cell24 {
+}
+
+#cell25 {
+}
+
+#cell26 {
+}
+
+#cell27 {
+}
+
+#cell28 {
+}
+
+#cell29 {
+}
+
+#cell30 {
+}
+
+#cell31 {
+}
+
+#cell32 {
+}
+
+#cell33 {
+}
+
+#cell34 {
+}
+
+#cell35 {
+}
+
+#cell36 {
+}
+
+#cell37 {
+}
+
+#cell38 {
+}
+
+#cell39 {
+}
+
+#cell40 {
+}
+
+#cell41 {
+}
+
+#cell42 {
+}
+
+
+
+
+
+.blackpiece {
+  color: black;
+}
