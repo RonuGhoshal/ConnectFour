@@ -8,7 +8,8 @@ columnSelector();
 var columnSelector = function(){
   $("#column1button").on("click", function(event){
     event.preventDefault();
-    console.log('It totally worked');
+    console.log('It worked');
+
   });
 };
 
