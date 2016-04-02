@@ -60,7 +60,14 @@ var columnSelector7 = function(){
     event.preventDefault();
     return this.id;
   });
+
+
 };
+
+var dropRed = function(){
+`
+ };
+
 
 
 
