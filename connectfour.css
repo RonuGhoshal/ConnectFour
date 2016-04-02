@@ -18,27 +18,14 @@ h1 {
   text-overflow: ellipsis;
   text-shadow: 5px 5px 0 rgba(255,0,0,1) ;
 }
-
-
-
+/*test*/
 .standardcolumn {
   list-style-type: none;
   height: 770px;
+  margin: -15px;
   width: 150px;
   display: inline-block;
   background-color: red;
-}
-
-.button {
-  height: 770px;
-  width: 150px;
-  display: inline-block;
-  border-color: transparent;
-  background-color: transparent;
-  padding: -20px;
-  margin: 15px;
-  border: none;
-  outline: 0;
 }
 
 .standardcell {
