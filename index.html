@@ -3,29 +3,26 @@
 <head>
   <title>Connect Four</title>
   <h1>Connect Four</h1>
-  <link rel='stylesheet' type='text/css' href='connectfour.css'/>
 
+  <link rel='stylesheet' type='text/css' href='connectfour.css'/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script src="application.js"></script>
+  <script src="connect4style.js"></script>
 
 </head>
 <body>
 
-  <button class="button" type="submit" id="column1button" >
-    <ul class="column1 standardcolumn">
-      <li>
-        <div class='row1 standardcell nopiece' id="cell1"></div>
-        <div class='row2 standardcell nopiece' id="cell2"></div>
-        <div class='row3 standardcell nopiece' id="cell3"></div>
-        <div class='row4 standardcell nopiece' id="cell4"></div>
-        <div class='row5 standardcell nopiece' id="cell5"></div>
-        <div class='row6 standardcell nopiece' id="cell6"></div>
-      </li>
-    </ul>
-  </button>
+  <ul id="column1" class="standardcolumn">
+    <li>
+      <div class='row1 standardcell nopiece' id="cell1"></div>
+      <div class='row2 standardcell nopiece' id="cell2"></div>
+      <div class='row3 standardcell nopiece' id="cell3"></div>
+      <div class='row4 standardcell nopiece' id="cell4"></div>
+      <div class='row5 standardcell nopiece' id="cell5"></div>
+      <div class='row6 standardcell nopiece' id="cell6"></div>
+    </li>
+  </ul>
 
-<button class="button" type="submit" id="column2button">
-  <ul class="column2 standardcolumn">
+  <ul id="column2" class="standardcolumn">
     <li>
       <div class='row1 standardcell nopiece' id="cell7"></div>
       <div class='row2 standardcell nopiece' id="cell8"></div>
@@ -35,10 +32,8 @@
       <div class='row6 standardcell nopiece' id="cell12"></div>
     </li>
   </ul>
-</button>
 
-<button class="button" type="submit" id="column3button">
-  <ul class="column3 standardcolumn">
+  <ul id="column3" class="standardcolumn">
     <li>
       <div class='row1 standardcell nopiece' id="cell13"></div>
       <div class='row2 standardcell nopiece' id="cell14"></div>
@@ -48,10 +43,8 @@
       <div class='row6 standardcell nopiece' id="cell18"></div>
     </li>
   </ul>
-</button>
 
-<button class="button" type="submit" id="column4button">
-  <ul class="column4 standardcolumn">
+  <ul id="column4" class="standardcolumn">
     <li>
       <div class='row1 standardcell nopiece' id="cell19"></div>
       <div class='row2 standardcell nopiece' id="cell20"></div>
@@ -61,10 +54,8 @@
       <div class='row6 standardcell nopiece' id="cell24"></div>
     </li>
   </ul>
-</button>
 
-<button class="button" type="submit" id="column5button">
-  <ul class="column5 standardcolumn">
+  <ul id="column5" class="standardcolumn">
     <li>
       <div class='row1 standardcell nopiece' id="cell25"></div>
       <div class='row2 standardcell nopiece' id="cell26"></div>
@@ -74,10 +65,8 @@
       <div class='row6 standardcell nopiece' id="cell30"></div>
     </li>
   </ul>
-</button>
 
-<button class="button" type="submit" id="column6button">
-  <ul class="column6 standardcolumn">
+  <ul id="column6" class="standardcolumn">
     <li>
       <div class='row1 standardcell nopiece' id="cell31"></div>
       <div class='row2 standardcell nopiece' id="cell32"></div>
@@ -87,10 +76,8 @@
       <div class='row6 standardcell nopiece' id="cell36"></div>
     </li>
   </ul>
-</button>
 
-<button class="button" type="submit" id="column7button">
-  <ul class="column7 standardcolumn">
+  <ul id="column7" class="standardcolumn">
     <li>
       <div class='row1 standardcell nopiece' id="cell37"></div>
       <div class='row2 standardcell nopiece' id="cell38"></div>
@@ -100,7 +87,6 @@
       <div class='row6 standardcell nopiece' id="cell42"></div>
     </li>
   </ul>
-</button>
 
 </body>
 </html>
