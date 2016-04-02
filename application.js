@@ -15,3 +15,13 @@ var find_open_cell = function(column) {
   return "all cells full";
 };
 
+var change_cell_color = function(cell) {
+  cell.removeClass("nopiece");
+  if (current_player == "red") {
+    cell.addClass("redpiece");
+  }
+
+  else if (current player == "black") {
+    cell.addClass("blackpiece");
+  }
+};
