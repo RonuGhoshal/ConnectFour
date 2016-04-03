@@ -1,7 +1,24 @@
 $(document).ready(function() {
   turn = 1
   columnSelector();
+  unsaturated();
 })
+
+var unsaturated = function(){
+  $( ".standardcolumn").hover( function(){
+    var open_cell = small_find_open(this.id);
+    if (turn % 2 == 0) {
+      $(open_cell).addClass("unsaturatedred");
+    } else {
+      $(open_cell).addClass("unsaturatedblack");
+  }
+  }, function(){
+    var open_cell = small_find_open(this.id);
+    $(open_cell).removeClass("unsaturatedblack");
+    $(open_cell).removeClass("unsaturatedred");
+  });
+};
+
 
 var columnSelector = function(){
   $(".standardcolumn").on("click", function(event){
@@ -13,6 +30,15 @@ var columnSelector = function(){
       checkForWin(open_cell);
     };
   });
+};
+var small_find_open = function(column) {
+  string = column.split(' ')[0].toString();
+  var cells_in_column = $( '#' + column + ' li div' );
+  for (i = 5; i>=0; i--) {
+    if ($(cells_in_column[i]).attr("class").includes("nopiece")) {
+      return $(cells_in_column[i]);
+    }
+  }
 };
 
 var find_open_cell = function(column) {
@@ -30,9 +56,11 @@ var find_open_cell = function(column) {
 var change_cell_color = function(cell) {
   cell.removeClass("nopiece");
   if (turn % 2 == 0) {
+    cell.removeClass("unsaturatedred")
     cell.addClass("redpiece");
   }
   else {
+    cell.removeClass("unsaturatedblack")
     cell.addClass("blackpiece");
   }
   turn++
@@ -94,6 +122,10 @@ var checkHorizontal = function(cell) {
   }
 };
 
+var cellClassSelect = function(columnNum, rowNum){
+  return ($('ul li .column' + (columnNum).toString() + ".row" +(rowNum).toString()).attr("class"));
+};
+
 var checkDiag1 = function(cell) {
   var current_column = $(cell).attr("class").split(' ')[0];
   var current_row = $(cell).attr("class").split(' ')[1];
@@ -101,13 +133,15 @@ var checkDiag1 = function(cell) {
   var row_num = Number(current_row.replace("row", ""));
   var pieces_array = []
   for(i=0; i <= (6-row_num); i++){
-    if ($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class")){
-    pieces_array.push($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class").split(' ')[3])
+    var cellClass = cellClassSelect(column_num +i, row_num +i);
+    if (cellClass){
+    pieces_array.push(cellClass.split(' ')[3]);
     }
   }
   for(i=1; i <= (7-row_num); i++){
-    if ($('ul li .column' + (column_num -i).toString() + ".row" +(row_num -i).toString()).attr("class")){
-    pieces_array.unshift($('ul li .column' + (column_num -i).toString() + ".row" +(row_num -i).toString()).attr("class").split(' ')[3])
+    var cellClass = cellClassSelect(column_num -i, row_num -i);
+    if (cellClass){
+    pieces_array.unshift(cellClass.split(' ')[3]);
     }
   }
   if (checkPieces(pieces_array) == true) {
@@ -122,13 +156,15 @@ var checkDiag2 = function(cell) {
   var row_num = Number(current_row.replace("row", ""));
   var pieces_array = []
   for(i=0; i <= (6-row_num); i++){
-    if ($('ul li .column' + (column_num -i).toString() + ".row" +(row_num +i).toString()).attr("class")){
-    pieces_array.unshift($('ul li .column' + (column_num -i).toString() + ".row" +(row_num +i)).attr("class").split(' ')[3])
+    var cellClass = cellClassSelect(column_num -i, row_num +i);
+    if (cellClass){
+    pieces_array.unshift(cellClass.split(' ')[3])
     }
   }
   for(i=1; i <= (7-row_num); i++){
-    if ($('ul li .column' + (column_num +i).toString() + ".row" +(row_num -i).toString()).attr("class")){
-    pieces_array.push($('ul li .column' + (column_num +i).toString() + ".row" +(row_num -i)).attr("class").split(' ')[3])
+    var cellClass = cellClassSelect(column_num +i, row_num -i);
+    if (cellClass){
+    pieces_array.push(cellClass.split(' ')[3])
     }
   }
   if (checkPieces(pieces_array) == true) {

@@ -47,6 +47,7 @@ h1 {
 #column7 {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
+  box-shadow: 10px 10px 5px #888888;
 }
 
 .nopiece {
@@ -60,4 +61,13 @@ h1 {
 .blackpiece {
   background-color: black;
 }
+
+.unsaturatedred{
+  background-color: #bf4040;
+}
+
+.unsaturatedblack {
+  background-color: #808080;
+}
+
 
