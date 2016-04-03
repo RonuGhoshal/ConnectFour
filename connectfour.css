@@ -2,15 +2,6 @@ body {
   text-align: center;
 }
 
-/*#board {
-  margin-left: 25%;
-  margin-right: 25%;
-  text-align: center;
-  width: 1200px ;
-  background-color: #cc0099;
-  border-radius: 25px;
-}
-*/
 h1 {
   width: 100%;
   display: inline-block;
@@ -48,7 +39,6 @@ h1 {
   border: 20px black;
 }
 
-
 #column1 {
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
@@ -57,168 +47,6 @@ h1 {
 #column7 {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
-}
-
-
-.row1 {
-
-}
-
-.row2 {
-
-}
-
-.row3 {
-
-}
-
-.row4 {
-
-}
-
-.row5 {
-
-}
-
-.row6 {
-
-}
-
-#cell1 {
-
-}
-
-#cell2 {
-
-}
-
-#cell3 {
-
-}
-
-#cell4 {
-
-}
-
-#cell5 {
-
-}
-
-#cell6 {
-
-}
-
-#cell7 {
-
-}
-
-#cell8 {
-
-}
-
-#cell9 {
-
-}
-
-#cell10 {
-
-}
-
-
-#cell11 {
-}
-
-#cell12 {
-}
-
-#cell13 {
-}
-
-#cell14 {
-}
-
-#cell15 {
-}
-
-#cell16 {
-}
-
-#cell17 {
-}
-
-#cell18 {
-}
-
-#cell19 {
-}
-
-#cell20 {
-}
-
-#cell21 {
-}
-
-#cell22 {
-}
-
-#cell23 {
-}
-
-#cell24 {
-}
-
-#cell25 {
-}
-
-#cell26 {
-}
-
-#cell27 {
-}
-
-#cell28 {
-}
-
-#cell29 {
-}
-
-#cell30 {
-}
-
-#cell31 {
-}
-
-#cell32 {
-}
-
-#cell33 {
-}
-
-#cell34 {
-}
-
-#cell35 {
-}
-
-#cell36 {
-}
-
-#cell37 {
-}
-
-#cell38 {
-}
-
-#cell39 {
-}
-
-#cell40 {
-}
-
-#cell41 {
-}
-
-#cell42 {
 }
 
 .nopiece {
@@ -232,4 +60,4 @@ h1 {
 .blackpiece {
   color: black;
 }
-/*to push*/
+
