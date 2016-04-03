@@ -1,20 +1,17 @@
 $(document).ready(function() {
   turn = 1
   columnSelector();
-  // var open_cell = find_open_cell(column);
-  // change_cell_color(open_cell);
-  // checkForWin(open_cell);
-
 })
 
 var columnSelector = function(){
   $(".standardcolumn").on("click", function(event){
     event.preventDefault();
     var column_id = this.id;
-    //return column_id;
     var open_cell = find_open_cell(column_id);
-    change_cell_color(open_cell);
-    checkForWin(open_cell);
+    if (open_cell) {
+      change_cell_color(open_cell);
+      checkForWin(open_cell);
+    };
   });
 };
 
@@ -26,18 +23,16 @@ var find_open_cell = function(column) {
       return $(cells_in_column[i]);
     }
   }
-  return "all cells full";
+  alert("This column is full! Try a different column.");
+  return false;
 };
 
 var change_cell_color = function(cell) {
   cell.removeClass("nopiece");
   if (turn % 2 == 0) {
-
     cell.addClass("redpiece");
   }
-
   else {
-    // console.log("blackpiece")
     cell.addClass("blackpiece");
   }
   turn++
@@ -45,20 +40,36 @@ var change_cell_color = function(cell) {
 
 
 var checkForWin = function(cell) {
+  var solved = false;
   if (checkVertical(cell) == true) {
-    alert("CONNECT FOUR! You win");
+    solved = true;
   }
   else if (checkHorizontal(cell) == true) {
-    alert("CONNECT FOUR! You win");
+    solved = true;
   }
   else if (checkDiag1(cell) == true) {
-    alert("CONNECT FOUR! You win");
+    solved = true;
   }
   else if (checkDiag2(cell) == true) {
-    alert("CONNECT FOUR! You win");
+    solved = true;
   }
+  if (solved == true) {
+    alert("CONNECT FOUR! You win");
+    $( '.standardcell.blackpiece' ).removeClass('blackpiece');
+    $( '.standardcell.redpiece' ).removeClass('redpiece');
+    $( '.standardcell' ).addClass('nopiece');
+  };
 };
 
+var checkPieces = function(pieces_array) {
+  for (i=0; i<4; i++) {
+    if (pieces_array[i] != "nopiece" && (pieces_array.length >= 4)) {
+      if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
+        return true;
+      };
+    };
+  };
+};
 
 var checkVertical = function(cell){
   var current_column = $(cell).attr("class").split(' ')[0];
@@ -66,62 +77,50 @@ var checkVertical = function(cell){
   var pieces_array = []
   for (i=0; i<6; i++) {
     pieces_array.push($(cells_in_column[i]).attr("class").split(' ')[3]);
-  }
-  for (i=0; i<4; i++) {
-    if (pieces_array[i] != "nopiece" && (pieces_array.length >= 4)) {
-      if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
-        return true;
-      };
-    };
   };
+  if (checkPieces(pieces_array) == true) {
+    return true;
+  }
+
 };
+
+
 
 var checkHorizontal = function(cell) {
   var current_row = $(cell).attr("class").split(' ')[1];
   var cells_in_row = $( 'ul li .' + current_row);
   var pieces_array = []
-  for (i=0; i<6; i++) {
+  for (i=0; i<7; i++) {
     pieces_array.push($(cells_in_row[i]).attr("class").split(' ')[3]);
-      }
-  for (i=0; i<4; i++) {
-    if (pieces_array[i] != "nopiece" && (pieces_array.length >= 4)) {
-      if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
-        return true;
-      };
-    };
-  };
+
+  }
+  if (checkPieces(pieces_array) == true) {
+    return true;
+  }
+
 };
 
 var checkDiag1 = function(cell) {
   var current_column = $(cell).attr("class").split(' ')[0];
   var current_row = $(cell).attr("class").split(' ')[1];
-  // console.log(current_row)
   var column_num = Number(current_column.replace("column", ""));
   var row_num = Number(current_row.replace("row", ""));
   var pieces_array = []
   for(i=0; i <= (6-row_num); i++){
-    // console.log((column_num +i).toString());
-    // console.log($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class").split(' ')[3]);
     if ($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class")){
     pieces_array.push($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class").split(' ')[3])
-      console.log("push" + pieces_array)
     }
-
   }
+
   for(i=1; i <= (7-row_num); i++){
     if ($('ul li .column' + (column_num -i).toString() + ".row" +(row_num -i).toString()).attr("class")){
     pieces_array.unshift($('ul li .column' + (column_num -i).toString() + ".row" +(row_num -i).toString()).attr("class").split(' ')[3])
-    console.log("unshift" + pieces_array)
+    }
   }
+  if (checkPieces(pieces_array) == true) {
+    return true;
   }
-  //console.log(pieces_array);
-  for (i=0; i<4; i++) {
-    if (pieces_array[i] != "nopiece" && (pieces_array.length >= 4)) {
-      if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
-        return true;
-      };
-    };
-  };
+
 };
 
 var checkDiag2 = function(cell) {
@@ -141,13 +140,9 @@ var checkDiag2 = function(cell) {
     }
 
   }
-  // console.log(pieces_array);
-  for (i=0; i<4; i++) {
-    if ((pieces_array[i] != "nopiece") && (pieces_array.length >= 4)) {
-      if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
-        return true;
-      };
-    };
-  };
+  if (checkPieces(pieces_array) == true) {
+    return true;
+  }
+
 };
 
