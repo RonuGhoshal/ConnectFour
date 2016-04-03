@@ -43,7 +43,7 @@ h1 {
   margin-top: 24px;
   margin-left: 5px;
   display: relative;
-  background-color: #F38630;
+  /*background-color: #F38630;*/
   border-radius: 100px;
   border: 20px black;
 }
@@ -222,14 +222,14 @@ h1 {
 }
 
 .nopiece {
-  color: #F38630 ;
+  background-color: #F38630 ;
 }
 
 .redpiece {
-  color: red;
+  background-color: red;
 }
 
 .blackpiece {
-  color: black;
+  background-color: black;
 }
 /*to push*/
