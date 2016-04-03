@@ -54,10 +54,10 @@ var checkForWin = function(cell) {
     solved = true;
   }
   if (solved == true) {
-    alert("CONNECT FOUR! You win");
     $( '.standardcell.blackpiece' ).removeClass('blackpiece');
     $( '.standardcell.redpiece' ).removeClass('redpiece');
     $( '.standardcell' ).addClass('nopiece');
+    alert("CONNECT FOUR! YOU WIN!")
   };
 };
 
