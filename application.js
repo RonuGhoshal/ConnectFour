@@ -31,6 +31,36 @@ var checkForWin = function(cell) {
 }
 
 var checkVertical = function(cell){
-
-}
+  var current_column = $(cell).attr("class").split(' ')[0];
+  var cells_in_column = $( '#' + current_column + ' li div' );
+  var pieces_array = []
+  for (i=0; i<6; i++) {
+    pieces_array.push($(cells_in_column[i]).attr("class").split(' ')[3]);
+  }
+  for (i=0; i<4; i++) {
+    if (pieces_array[i] != "nopiece") {
+      if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
+        alert "CONNECT FOUR!";
+        break;
+      };
+    };
+  };
 };
+
+var checkHorizontal = function(cell) {
+  var current_row = $(cell).attr("class").split(' ')[1];
+  var cells_in_row = $( 'ul li .' + current_row);
+  var pieces_array = []
+  for (i=0; i<6; i++) {
+    pieces_array.push($(cells_in_row[i]).attr("class").split(' ')[3];
+      }
+  for (i=0; i<4; i++) {
+    if (pieces_array[i] != "nopiece") {
+      if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
+        alert "CONNECT FOUR!";
+        break;
+      };
+    };
+  };
+};
+

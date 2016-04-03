@@ -65,7 +65,7 @@ var columnSelector7 = function(){
 };
 
 var dropRed = function(){
-`
+
  };
 
 
