@@ -1,8 +1,23 @@
 $(document).ready(function() {
   turn = 1
   columnSelector();
+  unsaturated();
 })
 
+var unsaturated = function(){
+  $( ".standardcolumn").hover( function(){
+    var open_cell = find_open_cell(this.id);
+    if (turn % 2 == 0) {
+      $(open_cell).addClass("unsaturatedred");
+    } else {
+      $(open_cell).addClass("unsaturatedblack");
+  }
+  }, function(){
+    var open_cell = find_open_cell(this.id);
+    $(open_cell).removeClass("unsaturatedblack");
+    $(open_cell).removeClass("unsaturatedred");
+  });
+};
 
 
 var columnSelector = function(){
@@ -32,9 +47,11 @@ var find_open_cell = function(column) {
 var change_cell_color = function(cell) {
   cell.removeClass("nopiece");
   if (turn % 2 == 0) {
+    cell.removeClass("unsaturatedred")
     cell.addClass("redpiece");
   }
   else {
+    cell.removeClass("unsaturatedblack")
     cell.addClass("blackpiece");
   }
   turn++
