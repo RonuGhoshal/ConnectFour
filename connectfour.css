@@ -2,6 +2,15 @@ body {
   text-align: center;
 }
 
+/*#board {
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+  width: 1200px ;
+  background-color: #cc0099;
+  border-radius: 25px;
+}
+*/
 h1 {
   width: 100%;
   display: inline-block;
