@@ -6,14 +6,14 @@ $(document).ready(function() {
 
 var unsaturated = function(){
   $( ".standardcolumn").hover( function(){
-    var open_cell = find_open_cell(this.id);
+    var open_cell = small_find_open(this.id);
     if (turn % 2 == 0) {
       $(open_cell).addClass("unsaturatedred");
     } else {
       $(open_cell).addClass("unsaturatedblack");
   }
   }, function(){
-    var open_cell = find_open_cell(this.id);
+    var open_cell = small_find_open(this.id);
     $(open_cell).removeClass("unsaturatedblack");
     $(open_cell).removeClass("unsaturatedred");
   });
@@ -30,6 +30,15 @@ var columnSelector = function(){
       checkForWin(open_cell);
     };
   });
+};
+var small_find_open = function(column) {
+  string = column.split(' ')[0].toString();
+  var cells_in_column = $( '#' + column + ' li div' );
+  for (i = 5; i>=0; i--) {
+    if ($(cells_in_column[i]).attr("class").includes("nopiece")) {
+      return $(cells_in_column[i]);
+    }
+  }
 };
 
 var find_open_cell = function(column) {
