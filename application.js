@@ -38,7 +38,6 @@ var change_cell_color = function(cell) {
   turn++
 };
 
-
 var checkForWin = function(cell) {
   var solved = false;
   if (checkVertical(cell) == true) {
@@ -54,11 +53,11 @@ var checkForWin = function(cell) {
     solved = true;
   }
   if (solved == true) {
+    alert("CONNECT FOUR! YOU WIN!");
     $( '.standardcell.blackpiece' ).removeClass('blackpiece');
     $( '.standardcell.redpiece' ).removeClass('redpiece');
     $( '.standardcell' ).addClass('nopiece');
-    alert("CONNECT FOUR! YOU WIN!")
-  };
+  }
 };
 
 var checkPieces = function(pieces_array) {
@@ -81,10 +80,7 @@ var checkVertical = function(cell){
   if (checkPieces(pieces_array) == true) {
     return true;
   }
-
 };
-
-
 
 var checkHorizontal = function(cell) {
   var current_row = $(cell).attr("class").split(' ')[1];
@@ -92,12 +88,10 @@ var checkHorizontal = function(cell) {
   var pieces_array = []
   for (i=0; i<7; i++) {
     pieces_array.push($(cells_in_row[i]).attr("class").split(' ')[3]);
-
   }
   if (checkPieces(pieces_array) == true) {
     return true;
   }
-
 };
 
 var checkDiag1 = function(cell) {
@@ -111,7 +105,6 @@ var checkDiag1 = function(cell) {
     pieces_array.push($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class").split(' ')[3])
     }
   }
-
   for(i=1; i <= (7-row_num); i++){
     if ($('ul li .column' + (column_num -i).toString() + ".row" +(row_num -i).toString()).attr("class")){
     pieces_array.unshift($('ul li .column' + (column_num -i).toString() + ".row" +(row_num -i).toString()).attr("class").split(' ')[3])
@@ -120,7 +113,6 @@ var checkDiag1 = function(cell) {
   if (checkPieces(pieces_array) == true) {
     return true;
   }
-
 };
 
 var checkDiag2 = function(cell) {
@@ -138,11 +130,8 @@ var checkDiag2 = function(cell) {
     if ($('ul li .column' + (column_num +i).toString() + ".row" +(row_num -i).toString()).attr("class")){
     pieces_array.push($('ul li .column' + (column_num +i).toString() + ".row" +(row_num -i)).attr("class").split(' ')[3])
     }
-
   }
   if (checkPieces(pieces_array) == true) {
     return true;
   }
-
 };
-
