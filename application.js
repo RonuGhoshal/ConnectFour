@@ -46,19 +46,15 @@ var change_cell_color = function(cell) {
 
 var checkForWin = function(cell) {
   if (checkVertical(cell) == true) {
-    console.log("Vert");
     alert("CONNECT FOUR! You win");
   }
   else if (checkHorizontal(cell) == true) {
-    console.log("Horz");
     alert("CONNECT FOUR! You win");
   }
   else if (checkDiag1(cell) == true) {
-    console.log("Diag1");
     alert("CONNECT FOUR! You win");
   }
   else if (checkDiag2(cell) == true) {
-    console.log("Diag2");
     alert("CONNECT FOUR! You win");
   }
 };
@@ -71,7 +67,6 @@ var checkVertical = function(cell){
   for (i=0; i<6; i++) {
     pieces_array.push($(cells_in_column[i]).attr("class").split(' ')[3]);
   }
-  // console.log(pieces_array);
   for (i=0; i<4; i++) {
     if (pieces_array[i] != "nopiece" && (pieces_array.length >= 4)) {
       if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
@@ -88,7 +83,6 @@ var checkHorizontal = function(cell) {
   for (i=0; i<6; i++) {
     pieces_array.push($(cells_in_row[i]).attr("class").split(' ')[3]);
       }
-  // console.log(pieces_array);
   for (i=0; i<4; i++) {
     if (pieces_array[i] != "nopiece" && (pieces_array.length >= 4)) {
       if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
@@ -110,18 +104,17 @@ var checkDiag1 = function(cell) {
     // console.log($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class").split(' ')[3]);
     if ($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class")){
     pieces_array.push($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class").split(' ')[3])
+      console.log("push" + pieces_array)
     }
-    // console.log("up")
-    // console.log(i)
-    // console.log(6-row_num)
-    // console.log(row_num)
+
   }
-  for(i=1; i <= (6-row_num); i++){
+  for(i=1; i <= (7-row_num); i++){
     if ($('ul li .column' + (column_num -i).toString() + ".row" +(row_num -i).toString()).attr("class")){
-    pieces_array.unshift($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class").split(' ')[3])
+    pieces_array.unshift($('ul li .column' + (column_num -i).toString() + ".row" +(row_num -i).toString()).attr("class").split(' ')[3])
+    console.log("unshift" + pieces_array)
   }
   }
-  // console.log(pieces_array);
+  //console.log(pieces_array);
   for (i=0; i<4; i++) {
     if (pieces_array[i] != "nopiece" && (pieces_array.length >= 4)) {
       if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
@@ -142,13 +135,13 @@ var checkDiag2 = function(cell) {
     pieces_array.unshift($('ul li .column' + (column_num -i).toString() + ".row" +(row_num +i)).attr("class").split(' ')[3])
     }
   }
-  for(i=1; i <= (6-row_num); i++){
+  for(i=1; i <= (7-row_num); i++){
     if ($('ul li .column' + (column_num +i).toString() + ".row" +(row_num -i).toString()).attr("class")){
     pieces_array.push($('ul li .column' + (column_num +i).toString() + ".row" +(row_num -i)).attr("class").split(' ')[3])
     }
 
   }
-  console.log(pieces_array);
+  // console.log(pieces_array);
   for (i=0; i<4; i++) {
     if ((pieces_array[i] != "nopiece") && (pieces_array.length >= 4)) {
       if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
