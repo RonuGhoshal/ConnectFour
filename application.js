@@ -64,3 +64,43 @@ var checkHorizontal = function(cell) {
   };
 };
 
+var checkDiag1 = function(cell) {
+  var current_column = $(cell).attr("class").split(' ')[0];
+  var current_row = $(cell).attr("class").split(' ')[1];
+  var column_num = Number(current_column.replace("column", ""));
+  var row_num = Number(current_row.replace("row", ""));
+  var pieces_array = []
+  for(i=0, i < (6-row_num), i++){
+    pieces_array.push($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i)).attr("class").split('')[3])
+  }
+  for(i=0, i > (6-row_num), i--){
+    pieces_array.unshift($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i)).attr("class").split('')[3])
+  }
+  for (i=0; i<4; i++) {
+    if (pieces_array[i] != "nopiece") {
+      if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
+        alert "CONNECT FOUR!";
+        break;
+      };
+};
+
+var checkDiag2 = function(cell) {
+  var current_column = $(cell).attr("class").split(' ')[0];
+  var current_row = $(cell).attr("class").split(' ')[1];
+  var column_num = Number(current_column.replace("column", ""));
+  var row_num = Number(current_row.replace("row", ""));
+  var pieces_array = []
+  for(i=0, i < (6-row_num), i++){
+    pieces_array.unshift($('ul li .column' + (column_num -i).toString() + ".row" +(row_num +i)).attr("class").split('')[3])
+  }
+  for(i=0, i > (6-row_num), i--){
+    pieces_array.push($('ul li .column' + (column_num +i).toString() + ".row" +(row_num -i)).attr("class").split('')[3])
+  }
+  for (i=0; i<4; i++) {
+    if (pieces_array[i] != "nopiece") {
+      if (pieces_array[i] == pieces_array[i + 1] && pieces_array[i] == pieces_array[i + 2] && pieces_array[i] == pieces_array[i + 3]) {
+        alert "CONNECT FOUR!";
+        break;
+      };
+};
+
