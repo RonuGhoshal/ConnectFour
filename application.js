@@ -108,7 +108,9 @@ var checkDiag1 = function(cell) {
   for(i=0; i <= (row_num-6); i++){
     // console.log((column_num +i).toString());
     // console.log($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class").split(' ')[3]);
+    if ($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class")){
     pieces_array.push($('ul li .column' + (column_num +i).toString() + ".row" +(row_num +i).toString()).attr("class").split(' ')[3])
+    }
     console.log("up")
     console.log(i)
     console.log(6-row_num)
@@ -136,10 +138,14 @@ var checkDiag2 = function(cell) {
   var row_num = Number(current_row.replace("row", ""));
   var pieces_array = []
   for(i=0; i < (6-row_num); i++){
+    if ($('ul li .column' + (column_num -i).toString() + ".row" +(row_num +i).toString()).attr("class")){
     pieces_array.unshift($('ul li .column' + (column_num -i).toString() + ".row" +(row_num +i)).attr("class").split(' ')[3])
+    }
   }
   for(i=0; i > (6-row_num); i--){
+    if ($('ul li .column' + (column_num +i).toString() + ".row" +(row_num -i).toString()).attr("class")){
     pieces_array.push($('ul li .column' + (column_num +i).toString() + ".row" +(row_num -i)).attr("class").split(' ')[3])
+    }
   }
   for (i=0; i<4; i++) {
     if (pieces_array[i] != "nopiece") {
