@@ -138,7 +138,7 @@ var checkDiag1 = function(cell) {
     pieces_array.push(cellClass.split(' ')[3]);
     }
   }
-  for(i=1; i <= (7-row_num); i++){
+  for(i=1; i < (row_num); i++){
     var cellClass = cellClassSelect(column_num -i, row_num -i);
     if (cellClass){
     pieces_array.unshift(cellClass.split(' ')[3]);
@@ -159,14 +159,17 @@ var checkDiag2 = function(cell) {
     var cellClass = cellClassSelect(column_num -i, row_num +i);
     if (cellClass){
     pieces_array.unshift(cellClass.split(' ')[3])
+    console.log("shift" + pieces_array);
     }
   }
-  for(i=1; i <= (7-row_num); i++){
+  for(i=1; i < (row_num); i++){
     var cellClass = cellClassSelect(column_num +i, row_num -i);
     if (cellClass){
     pieces_array.push(cellClass.split(' ')[3])
+    console.log("push" + pieces_array);
     }
   }
+  console.log(pieces_array)
   if (checkPieces(pieces_array) == true) {
     return true;
   }
